@@ -36,6 +36,16 @@ function update(event) {
 }
 
 function iniciarJogo() {
+  if (snake[0].positionX > 15 * box && direction == "right") {
+    snake[0].positionX = 0;
+  } else if (snake[0].positionX < 0 && direction == "left") {
+    snake[0].positionX = 16 * box;
+  } else if (snake[0].positionY > 15 * box && direction == "down") {
+    snake[0].positionY = 0;
+  } else if (snake[0].positionY < 0 && direction == "up") {
+    snake[0].positionY = 16 * box;
+  }
+
   criarBackground();
   criarCobrinha();
   let snakeX = snake[0].positionX;
