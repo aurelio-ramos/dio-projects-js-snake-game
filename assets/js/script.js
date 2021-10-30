@@ -56,6 +56,13 @@ function iniciarJogo() {
     snake[0].positionY = 16 * box;
   }
 
+  for (let i=1; i < snake.length; i++){
+    if(snake[0].positionX == snake[i].positionX && snake[0].positionY == snake[i].positionY){
+      clearInterval(jogo);
+      alert('Game Over \n :(');
+    }
+  }
+
   criarBackground();
   criarCobrinha();
   drawFood();
