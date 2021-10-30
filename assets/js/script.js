@@ -10,7 +10,7 @@ snake[0] = {
 let food = {
   positionX: Math.floor(Math.random() * 15 + 1) * box,
   positionY: Math.floor(Math.random() * 15 + 1) * box,
-}
+};
 
 let direction = "right";
 
@@ -26,7 +26,7 @@ function criarCobrinha() {
   }
 }
 
-function drawFood(){
+function drawFood() {
   context.fillStyle = "red";
   context.fillRect(food.positionX, food.positionY, box, box);
 }
@@ -72,7 +72,12 @@ function iniciarJogo() {
     snakeY += box;
   }
 
-  snake.pop();
+  if (snakeX != food.positionX || snakeY != food.positionY) {
+    snake.pop();
+  } else {
+    food.positionX = Math.floor(Math.random() * 15 + 1) * box;
+    food.positionY = Math.floor(Math.random() * 15 + 1) * box;
+  }
 
   let newHead = {
     positionX: snakeX,
